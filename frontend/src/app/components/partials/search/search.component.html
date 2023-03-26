@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div>
+    <input autofocus
+      type="text"
+      #s
+      placeholder="Search Food "
+      (keyup.enter)="search(s.value)"
+      [value]="searchTerm"
+    />
+    <button class="" (click)="search(s.value)">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+</div>

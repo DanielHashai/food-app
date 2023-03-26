@@ -1,0 +1,152 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 250px;
+    
+    
+    
+}
+.container > *{
+    min-width: 15rem;
+    max-width: 20rem;
+    
+}
+/* flex:1 --> means that the image will always take the size of the content below in a different div */
+img{
+    
+    flex: 1 0 ;
+    object-fit: cover;
+    animation: move 0.5s cubic-bezier(0.39,0.575,0.565,1)both;
+    margin: 1rem;
+    
+}
+.details{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0;
+    border: 3rem;
+    padding: 2rem;
+    color: black;
+    margin-left: 1rem;
+    border: 5px solid grey;
+    margin-bottom: 20px;
+    animation: move 0.5s cubic-bezier(0.39,0.575,0.565,1)both;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.name{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.favorite{
+    color: #e72929;
+    font-size: 2.5rem;
+}  
+.favorite.not{
+color: grey;
+}
+.origins{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+.origins span{
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin: 0.5rem 0.5rem 0.5rem 0 ;
+    border-radius: 2rem;
+    background-color: aliceblue;
+}
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.tags a{
+    background-color: #f0f0f0;
+    padding: 0.3rem 0.15rem;
+    margin: 0.2rem 0.15rem ;
+    border-radius: 10rem;
+    font-weight: 600;
+    color: blue;
+}
+.cook-time{
+    margin-top: 1rem;
+}
+.cook-time span{
+    padding: 0.6rem 2rem 0.6rem 0;
+    border-radius: 10rem;
+    font-size: 1.3rem;
+}
+.price{
+    font-size: 1.8rem;
+    margin: 2rem 2rem 2rem 0;
+    color: green;
+
+}
+.price::before{
+    content: "Price:";
+    color: grey;
+}
+button{
+    color: white;
+    background: #e72929;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 10rem;
+    outline: none;
+}
+button:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+
+/* -------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+/*-- VARIABLES CSS--*/
+/*Colores*/
+:root{
+    --first-color: #E3F8FF;
+    --second-color: #DCFAFB;
+    --third-color: #FFE8DF;
+    --accent-color: #FF5151;
+    --dark-color: #161616;
+}
+
+/*Tipografia responsive*/
+:root{
+    --body-font: 'Open Sans';
+    --h1-font-size: 1.5rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --smaller-font-size: 0.75rem;
+}
+@media screen and (min-width: 768px){
+    :root{
+        --h1-font-size: 2rem;
+        --normal-font-size: 1rem;
+        --smaller-font-size: 0.813rem;
+    }
+}
+
+/*-- BASE --*/
+.wrapper{
+    background-color:#FFE8DF;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  @keyframes move{
+    from{
+        opacity: 0;
+        transform: translate3d(80%,20%,0);
+    }
+}

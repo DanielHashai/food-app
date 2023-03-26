@@ -1,0 +1,47 @@
+<app-not-found [visible]="!food" notFoundMessage="Im sorry but playing around with the URL will not work here :)" resetLinkText="Back To Home Page"></app-not-found>
+<div class="wrapper">
+<div *ngIf="food" class="container">
+  <img [src]="food.imageUrl" [alt]="food.name" />
+
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{ food.name }}
+      </span>
+      <span class="favorite {{ food.favorite ? '' : 'not' }}">❤</span>
+    </div>
+  
+  <div class="rating">
+    <star-rating
+      [value]="food.stars"
+      [totalstars]="5"
+      checkedcolor="red"
+      uncheckedcolor="black"
+      size="20px"
+      [readonly]="true"
+    >
+    </star-rating>
+  </div>
+    <div class="origins">
+      <span *ngFor="let origin of food.origins">
+        {{ origin }}
+      </span>
+    </div>
+    <div class="tags">
+      <a *ngFor="let tag of food.tags" routerLink="/tag/{{ tag }}">
+        {{ tag }}
+      </a>
+    </div>
+    <div class="cook-time">
+      <span>🕒</span>
+      {{ food.cookTime }}
+    </div>
+    <div class="price">
+      <span>
+        {{ food.price | currency:"ILS" }}
+      </span>
+    </div>
+    <button (click)="addToCart()">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+  </div>  
+</div>
+</div>
