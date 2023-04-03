@@ -1,23 +1,26 @@
 <header>
   <div class="container">
-    <a routerLink="/" class="logo">Grab A Bite <i class="fa-solid fa-utensils"></i></a>
+    <a routerLink="/" class="logo"
+      >Grab A Bite <i class="fa-solid fa-utensils"></i
+    ></a>
     <nav>
       <ul>
         <li *ngIf="!user.token">
           <a routerLink="/login">Login</a>
+          <a routerLink="/register">Register</a>
         </li>
         <li *ngIf="isAuth" class="menu-container">
-          <a routerLink="/dashboard">{{user.name}}</a>
+          <a routerLink="/dashboard">{{ user.name }}</a>
           <div class="menu">
-            <a routerLink="/profile">Profile</a>
-            <a routerLink="/orders">Orders</a>
-            <a (click) ="logout()">Logout</a>
+            <a *ngIf="checkIfAdmin()" routerLink="/add-meal">Add Meal</a>
+            <!-- <a routerLink="/register">Register</a> -->
+            <a (click)="logout()">Logout</a>
           </div>
         </li>
         <li>
-            <a routerLink="/cart-page"> 
-                Cart <span *ngIf="cartQuantity" >{{cartQuantity}}</span>
-            </a>
+          <a routerLink="/cart-page">
+            Cart <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
+          </a>
         </li>
       </ul>
     </nav>

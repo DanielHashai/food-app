@@ -4,6 +4,7 @@ import { firstValueFrom, Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/shared/models/Food';
+import { Origin } from 'src/shared/models/Origin';
 
 @Component({
   selector: 'app-food-page',
@@ -12,11 +13,11 @@ import { Food } from 'src/shared/models/Food';
 })
 export class FoodPageComponent implements OnInit {
   public food: Food;
+
   public constructor(private activateRoute: ActivatedRoute, private foodService: FoodService, private cartService: CartService, private router: Router) {
 
   }
-  public ngOnInit(): void {
-
+  public async ngOnInit(): Promise<void> {
     this.activateRoute.params.subscribe(async (params) => {
       let observable: Observable<Food>
       if (params.id)

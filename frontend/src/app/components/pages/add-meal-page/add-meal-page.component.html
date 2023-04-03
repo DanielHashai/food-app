@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <div class="center">
+    <form (ngSubmit)="submit()" ngNativeValidate>
+      <div class="txt_field">
+        <label *ngIf="!meal.name">Name:</label>
+        <input
+          type="text"
+          [(ngModel)]="meal.name"
+          required
+          name="name"
+          
+        />
+      </div>
+      <div class="txt_field">
+        <label *ngIf="!meal.price">Price:</label>
+        <input type="number" name="price" [(ngModel)]="meal.price" required />
+      </div>
+      <label >Image:</label>
+      <div class="txt_field">
+        
+        <input
+          name="image"
+          type="file"
+          #image
+          accept="image/jpeg , image/png"
+        />
+      </div>
+
+      <div class="select-box">
+      
+      <select class="select" #quantitySelect (change)="getEventsByType(quantitySelect.value)">
+        <option disabled selected value="0">Select</option>
+        <option *ngFor="let origin of origins" [value]="origin.originId">
+          {{ origin.country }}
+        </option>
+      </select>
+    </div>
+      <div class="txt_field">
+        <label *ngIf="!meal.cookTime">Cook Time:</label>
+        <input
+          type="text"
+          [(ngModel)]="meal.cookTime"
+          required
+          name="cookTime"
+        />
+      </div>
+      <input type="submit" value="Add Meal" />
+    </form>
+  </div>
+</div>

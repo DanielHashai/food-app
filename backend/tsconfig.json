@@ -2,7 +2,7 @@
     "compilerOptions": {
       "module": "CommonJS",
       "moduleResolution": "node",
-      "strict": true,
+      "target": "ES6",
       "outDir": "./built",
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,

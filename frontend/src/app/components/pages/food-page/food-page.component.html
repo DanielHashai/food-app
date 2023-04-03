@@ -1,7 +1,9 @@
 <app-not-found [visible]="!food" notFoundMessage="Im sorry but playing around with the URL will not work here :)" resetLinkText="Back To Home Page"></app-not-found>
+
+
 <div class="wrapper">
 <div *ngIf="food" class="container">
-  <img [src]="food.imageUrl" [alt]="food.name" />
+  <img src="http://localhost:5001/api/foods/image/images{{food.imageName}}" alt="" />
 
   <div class="details">
     <div class="header">

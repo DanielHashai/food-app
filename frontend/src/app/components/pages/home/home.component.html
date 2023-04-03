@@ -1,63 +1,64 @@
-<!-- <app-search></app-search>
-<app-tags></app-tags>
-<app-not-found
-  [visible]="
-  !foods
-  ||
-  !foods.length"
-  resetLinkText="Reset Search"
-></app-not-found>
-<ul>
-  <li *ngFor="let food of foods">
-    <a routerLink="/food/{{ food.id }}">
-      <img src="{{ food.imageUrl }}" alt="" />
-      <div class="content">
-        <div class="name">
-          {{ food.name }}
-        </div>
-        <span class="favorite {{ food.favorite ? '' : 'not' }}"> ❤ </span>
-        <div class="stars">
-          <star-rating
-            [value]="food.stars"
-            [totalstars]="5"
-            checkedcolor="green"
-            uncheckedcolor="black"
-            size="20px"
-            [readonly]="true"
-          >
-          </star-rating>
-        </div>
-        <div class="product-item-footer">
-          <div class="origins">
-            <span *ngFor="let origin of food.origins">
-              {{ origin }}
-            </span>
-          </div>
-          <div class="cook-time">
-            <span>🕒</span>
-            {{ food.cookTime }}
-          </div>
-        </div>
-        <div class="price">
-          <span>
-            {{ food.price | currency : "ILS" }}
-          </span>
-        </div>
-      </div>
-    </a>
-  </li>
-</ul> -->
-<app-search></app-search>
 
 <app-not-found
   [visible]="!foods || !foods.length"
   resetLinkText="Reset Search"
 ></app-not-found>
+<div class="carousel-wrapper">
+  <div class="carousel">
+    <div class="carousel_item" style="--i: 1">
+      <img src="../../../../assets/chicken.png" alt="" class="carousel-img" />
+    </div>
+    <div class="carousel_item" style="--i: 2">
+      <img src="../../../../assets/falafel.jpeg" alt="" class="carousel-img" />
+    </div>
+    <div class="carousel_item" style="--i: 3">
+      <img src="../../../../assets//pizza-1.png" alt="" class="carousel-img" />
+    </div>
+    <div class="carousel_item" style="--i: 4">
+      <img src="../../../../assets//ramen.png" alt="" class="carousel-img" />
+    </div>
+    <div class="carousel_item" style="--i: 5">
+      <img src="../../../../assets/rice.png" alt="" class="carousel-img" />
+    </div>
+    <div class="carousel_item" style="--i: 6">
+      <img src="../../../../assets/salad.png" alt="" class="carousel-img" />
+    </div>
+    <div class="carousel_item" style="--i: 7">
+      <img src="../../../../assets/salmon.jpeg" alt="" class="carousel-img" />
+    </div>
+  </div>
+</div>
+
+<section class="grid">
+  <div class="content">
+    <div class="content-left">
+      <div class="info">
+        <h2>Order Your Best <br />Food anytime</h2>
+        <p>Click here below to Login/Register</p>
+        <div class="btn-group">
+          <a routerLink="/login" class="btn-login">Login</a>
+          <a routerLink="/register"class="btn-login">Register</a>
+        </div>
+      </div>
+    </div>
+    <div class="content-right">
+      <img style="width: 200px; height: 200px; border-radius: 50%;" [src]="img" alt="" />
+    </div>
+  </div>
+</section>
+<app-search></app-search>
 <div class="temp">
   <div class="main bd-grid">
-    <a *ngFor="let food of foods" class="card" routerLink="/food/{{ food.id }}">
+    <a
+      *ngFor="let food of foods"
+      class="card"
+      routerLink="/food/{{ food.foodId }}"
+    >
       <div class="card__img">
-        <img src="{{ food.imageUrl }}" alt="" />
+        <img
+          src="http://localhost:5001/api/foods/image/images{{ food.imageName }}"
+          alt=""
+        />
       </div>
       <div class="card__name">
         <p>{{ food.name }}</p>

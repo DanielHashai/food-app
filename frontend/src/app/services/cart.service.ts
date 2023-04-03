@@ -12,20 +12,20 @@ export class CartService {
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
   constructor() {}
   public addToCart(food: Food): void {
-    let cartItem = this.cart.items.find(item => item.food.id === food.id);
+    let cartItem = this.cart.items.find(item => item.food.foodId === food.foodId);
     if (cartItem)
       return;
     this.cart.items.push(new CartItem(food));
     this.setCartToLocalStorage();
   }
 
-  public removeFromCart(foodId: string): void {
-    this.cart.items = this.cart.items.filter(item => item.food.id != foodId);
+  public removeFromCart(foodId: number): void {
+    this.cart.items = this.cart.items.filter(item => item.food.foodId != foodId);
     this.setCartToLocalStorage();
   }
 
-  public changeQuantity(foodId: string, quantity: number) {
-    let cartItem = this.cart.items.find(item => item.food.id === foodId);
+  public changeQuantity(foodId: number, quantity: number) {
+    let cartItem = this.cart.items.find(item => item.food.foodId === foodId);
     if (!cartItem)
       return;
     cartItem.quantity = quantity;

@@ -3,6 +3,7 @@ div {
   justify-content: center;
   margin-top: 3rem;
   padding: 10px;
+  min-width: 300px;
 }
 input {
   border-radius: 10rem 0 0 10rem;
@@ -36,5 +37,5 @@ div button:hover {
   box-shadow: 3px 3px 3px black;
   height: 100%;
   position: relative;
-  background-color: #e3f8ff;
+  background-color: #161616;
 }

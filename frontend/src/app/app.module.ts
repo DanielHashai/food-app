@@ -16,6 +16,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { LoginPageComponent } from './components/pages/login-page/login-page.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
+import { FormsModule } from '@angular/forms';
+import { AddMealPageComponent } from './components/pages/add-meal-page/add-meal-page.component';
+
 
 
 @NgModule({
@@ -30,16 +35,19 @@ import { ToastrModule } from 'ngx-toastr';
     TitleComponent,
     NotFoundComponent,
     LoginPageComponent,
+    RegisterPageComponent,
+    AddMealPageComponent,
 
 
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     AppRoutingModule,
     RatingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule
+    ToastrModule,
+    BrowserAnimationsModule, FormsModule
 
   ],
   providers: [],

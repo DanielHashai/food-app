@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <div class="center">
+    <h1>Register</h1>
+    <form (ngSubmit)="submit()" ngNativeValidate>
+      <div class="txt_field">
+        <label *ngIf="!user.email">Email:</label>
+        <input
+          type="email"
+          [(ngModel)]="user.email"
+          required
+          name="email"
+          pattern="^(?!.*\.{2})(?!\.)[A-Za-z0-9_.'-]*[A-Za-z0-9_'-]@(?!_)(?:[a-z0-9_'-]+\.)+[a-z0-9_'-]{2,}$"
+        />
+      </div>
+      <div class="txt_field">
+        <label *ngIf="!user.name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="user.name"
+          required
+          pattern="^[a-zA-Z]{2,20}$"
+        />
+      </div>
+      <div class="txt_field">
+        <label *ngIf="!user.address">Address:</label>
+        <input
+          name="address"
+          type="text"
+          [(ngModel)]="user.address"
+          required
+          pattern="^[a-zA-Z]{2,20}$"
+        />
+      </div>
+      <div class="txt_field">
+        <label *ngIf="!user.password">Password:</label>
+        <input 
+          name="password"
+          type="password"
+          [(ngModel)]="user.password"
+          required
+          pattern="^.{4,}$"
+        />
+      </div>
+      <input type="submit" value="Register" />
+    </form>
+  </div>
+</div>
